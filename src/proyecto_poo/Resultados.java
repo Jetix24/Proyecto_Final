@@ -14,6 +14,7 @@ public class Resultados extends javax.swing.JFrame {
 
     DefaultTableModel modelo = new DefaultTableModel();
     double[] Cal = new double[Proyecto_POO.Numero()];
+    String[][] Datos = new String[Proyecto_POO.Numero()][3];
     double total;
     int j=0;
     int i = 0;
@@ -21,7 +22,7 @@ public class Resultados extends javax.swing.JFrame {
        
     public Resultados() {
         this.setTitle("Datos");
-        this.getContentPane().setBackground(new Color(0,90,0));
+        this.getContentPane().setBackground(new Color(0, 1, 28));
         initComponents();
         this.Btn_Calcular.setVisible(false);
         this.Btn_Generar.setVisible(false);
@@ -500,9 +501,13 @@ public class Resultados extends javax.swing.JFrame {
                         Cal[i] = Double.parseDouble(Txt_Calificacion.getText());
                         if(Cal[i] >= 0 && Cal[i] <=10 ){
                         modelo.addRow(fila);   
+                        Datos[i][0] = Txt_Alumno.getText();
+                        Datos[i][1] = Txt_Matricula.getText();
+                        Datos[i][2] = Txt_Calificacion.getText();
+                            
                         i= i+1;
                         total = (Double.parseDouble(Txt_Calificacion.getText()))+total;
-
+                       
                         Txt_Total.setText( String.valueOf(total));
 
                         Txt_Alumno.setText("");
@@ -515,7 +520,6 @@ public class Resultados extends javax.swing.JFrame {
                             if(j == Proyecto_POO.Numero()){
                               this.Btn_Agregar.setVisible(false);
                               this.Btn_Calcular.setVisible(true);
-                              this.Btn_Generar.setVisible(true);
                               Txt_Alumno.setEnabled(false);
                               Txt_Matricula.setEnabled(false);
                               Txt_Calificacion.setEnabled(false);
@@ -574,11 +578,13 @@ public class Resultados extends javax.swing.JFrame {
         this.Txt_Mayor_Cal.setText(RD.CalMa());
         this.Txt_Menor_Cal.setText(RD.Calme());
         
-        
+        this.Btn_Generar.setVisible(true);
     }//GEN-LAST:event_Btn_CalcularActionPerformed
 
     private void Btn_GenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_GenerarActionPerformed
-        // TODO add your handling code here:
+       Documento D = new Documento(Datos,Proyecto_POO.Numero(),String.valueOf(total),Txt_Media.getText(),Txt_Moda.getText(),Txt_No_Rep.getText(),
+               Txt_Mediana.getText(),Txt_Desviacion.getText(),Txt_Varianza.getText(),Txt_Rango.getText(),Txt_Mayor_Cal.getText(),Txt_Menor_Cal.getText());
+           D.Modificar();
     }//GEN-LAST:event_Btn_GenerarActionPerformed
 
     /**

@@ -1,0 +1,23 @@
+Nombre: jose
+Martrícula: 214
+Calificación: 10
+
+***Datos***
+No. de alumnos: 1
+Total de calificaciones: 10.0
+
+***Resultados***
+
+**Medidas de tendencia central**
+Media: 10.0
+Moda: 10.0 No de repeticiones: 1
+Mediana: 10.0
+
+**Medidas de dispersión**
+Rango: 0.0
+Desviación Estandar: 0.0
+Varianza: 0.0
+
+**Reporte de Datos**
+Mayor calificación: 10.0
+Menor calificación: 10.0

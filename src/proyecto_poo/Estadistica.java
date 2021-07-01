@@ -5,6 +5,8 @@
  */
 package proyecto_poo;
 
+import java.io.IOException;
+
 /**
  *
  * @author 52614
